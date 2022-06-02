@@ -1,0 +1,261 @@
+/*
+ * Witch Hazel Hypercolor for Logseq
+ *
+ * by @zoeisnowooze
+ * Witch Hazel by @theacodes
+ *
+ * https://witchhazel.thea.codes/
+ */
+
+
+/*
+ * Font imports (requires computer to be online)
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+
+:root {
+  --cyan: #a3f3ff;
+  --linen: #f8f8f2;
+  --linen-hover: #f8f8f280;
+  --mint: #81ffbe;
+  --orange: #d7ba7d;
+  --pink: #ffa3c3;
+  --pink-hover: #dba6ba;
+  --purple: #8864cb;
+  --silver: #bfbfbf;
+  --violet: #634e89;
+  --yellow: #fff781;
+
+  --background: #282a36;
+  --light-background: #343746;
+  --lighter-background: var(--violet);
+  --dark-background: #3b364e;
+  --darker-background: #282635;
+  --foreground: var(--linen);
+  --current-line: #131218;
+  --comment: var(--silver);
+
+  --ls-tag-text-opacity: 0.8;
+  --ls-tag-text-hover-opacity: 0.8;
+  --ls-page-text-size: 16px;
+  --ls-page-title-size: 36px;
+  --ls-font-family: "IBM Plex Sans";
+  --ls-font-weight: 300;
+  --ls-font-letter-spacing: 0.002em;
+  --ls-font-line-height: 1.5;
+
+  --ls-border-radius-low: 3px;
+  --ls-border-radius-medium: 6px;
+}
+
+.dark-theme,
+html[data-theme="dark"] {
+  --ls-primary-background-color: var(--background);
+  --ls-secondary-background-color: var(--dark-background);
+  --ls-tertiary-background-color: var(--light-background);
+  --ls-quaternary-background-color: var(--light-background);
+  --ls-quinary-background-color: var(--darker-background);
+
+  --ls-active-primary-color: var(--foreground);
+  --ls-active-secondary-color: var(--foreground);
+
+  --ls-primary-text-color: var(--foreground);
+  --ls-secondary-text-color: var(--linen-hover);
+
+  --ls-search-background-color: var(--background);
+  --ls-border-color: var(--comment);
+  --ls-secondary-border-color: var(--ls-border-color);
+  --ls-menu-hover-color: var(--light-background);
+  --ls-table-tr-even-background-color: var(--light-background);
+
+  --ls-head-text-color: var(--foreground);
+  --ls-title-text-color: var(--foreground);
+
+  --ls-link-text-color: var(--pink);
+  --ls-link-text-hover-color: var(--pink-hover);
+
+  --ls-link-ref-text-color: var(--pink);
+  --ls-link-ref-text-hover-color: var(--pink-hover);
+  --ls-block-ref-link-text-color: var(--ls-border-color);
+
+  --ls-tag-text-color: var(--purple);
+  --ls-tag-text-hover-color: var(--violet);
+
+  --ls-block-bullet-border-color: var(--current-line);
+  --ls-block-bullet-color: var(--foreground);
+  --ls-block-highlight-color: var(--current-line);
+  --ls-block-properties-background-color: var(--light-background);
+
+  --ls-page-checkbox-color: transparent;
+  --ls-page-checkbox-border-color: var(--comment);
+
+  --ls-page-blockquote-color: var(--foreground);
+  --ls-page-blockquote-bg-color: var(--light-background);
+  --ls-page-blockquote-border-color: var(--yellow);
+  --ls-page-properties-background-color: var(--light-background);
+
+  --ls-page-inline-code-color: var(--orange);
+  --ls-page-inline-code-bg-color: var(--background);
+
+  --ls-scrollbar-background-color: var(--background);
+  --ls-scrollbar-foreground-color: var(--darker-background);
+  --ls-scrollbar-thumb-hover-color: var(--light-background);
+
+  --ls-icon-color: var(--linen-hover);
+  --ls-search-icon-color: var(--linen-hover);
+  --ls-a-chosen-bg: var(--light-background);
+  --ls-right-sidebar-code-bg-color: var(--light-background);
+  --ls-selection-background-color: var(--comment);
+  --ls-slide-background-color: var(--ls-primary-background-color);
+  --ls-guideline-color: var(--ls-border-color);
+  --color-level-1: var(--ls-secondary-background-color);
+  --color-level-2: var(--ls-primary-background-color);
+  --color-level-3: var(--ls-quaternary-background-color);
+  --color-level-4: var(--ls-tertiary-background-color);
+  --color-level-5: var(--ls-quinary-background-color);
+}
+
+html,
+body {
+  font-weight: var(--ls-font-weight);
+  letter-spacing: var(--ls-font-letter-spacing);
+  line-height: var(--ls-font-line-height);
+  font-size: var(--ls-page-text-size);
+  background-color: var(--background);
+}
+
+mark {
+  background-color: var(--yellow);
+}
+
+:not(pre)>code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 0 !important;
+}
+
+.main-content-container {
+  font-family: "IBM Plex Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Twemoji Mozilla", sans-serif;
+}
+
+.external-link {
+  color: var(--pink);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.external-link:hover {
+  color: var(--pink-hover);
+}
+
+h1.title {
+  font-weight: 400;
+}
+
+.ls-block h1,
+.ls-block h2,
+.ls-block h3,
+.ls-block h4,
+.ls-block h5,
+.ls-block h6 {
+  font-weight: 400;
+  color: var(--yellow);
+  margin: 0.4em 0 0.67em;
+}
+
+a.tag {
+  background: var(--purple);
+  border-radius: 3px 3px 3px 3px;
+  padding: 0px 3px;
+  color: var(--dark-background);
+  font-weight: 400;
+}
+
+a.tag:hover {
+  background: transparent;
+  color: var(--purple);
+}
+
+
+/*
+ * CodeMirror
+ */
+
+html[data-theme="dark"] .CodeMirror {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  line-height: 1.2;
+  background: var(--background);
+  border: 5px solid var(--light-background);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: var(--linen);
+}
+html[data-theme="dark"] .cm-s-default .CodeMirror,
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
+  background-color: transparent;
+  color: var(--linen) !important;
+  border: none;
+}
+html[data-theme="dark"] .extensions__code-lang {
+  background: var(--light-background);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-gutters {
+  color: var(--background);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-cursor {
+  border-left: solid thin var(--linen);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-line {
+  box-shadow: none;
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-line::selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::selection,
+html[data-theme="dark"]
+  .cm-s-default
+  .CodeMirror-line
+  > span
+  > span::selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-line::-moz-selection,
+html[data-theme="dark"] .CodeMirror .CodeMirror-line > span::-moz-selection,
+html[data-theme="dark"]
+  .cm-s-default
+  .CodeMirror-line
+  > span
+  > span::-moz-selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] #right-sidebar pre.CodeMirror-line {
+  background: transparent;
+}
+
+html[data-theme="dark"] .CodeMirror .CodeMirror-cursor { color: var(--linen); }
+html[data-theme="dark"] .CodeMirror .CodeMirror-activeline-background { background: #131218 !important; }
+html[data-theme="dark"] .CodeMirror .CodeMirror-linenumber { color: var(--comment); }
+html[data-theme="dark"] .CodeMirror .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: var(--linen) !important;
+}
+html[data-theme="dark"] .CodeMirror .CodeMirror-selected { background: #8077A8; }
+html[data-theme="dark"] .CodeMirror span.cm-atom { color: var(--cyan); }
+html[data-theme="dark"] .CodeMirror span.cm-attribute { color: #FFF9A3; }
+html[data-theme="dark"] .CodeMirror span.cm-comment { color: var(--comment); }
+html[data-theme="dark"] .CodeMirror span.cm-def { color: #DCC8FF; font-weight: bold; }
+html[data-theme="dark"] .CodeMirror span.cm-error { background: #F92672; color: var(--linen); }
+html[data-theme="dark"] .CodeMirror span.cm-invalidchar { background: #F92672; color: var(--linen); }
+html[data-theme="dark"] .CodeMirror span.cm-keyword { color: #81FFBE; }
+html[data-theme="dark"] .CodeMirror span.cm-number { color: #FFF9A3; }
+html[data-theme="dark"] .CodeMirror span.cm-operator { color: var(--linen); }
+html[data-theme="dark"] .CodeMirror span.cm-property { color: #c5a3ff; }
+html[data-theme="dark"] .CodeMirror span.cm-qualifier { font-weight: bold; color: var(--cyan); }
+html[data-theme="dark"] .CodeMirror span.cm-string { color: #81EEFF; font-style: italic; }
+html[data-theme="dark"] .CodeMirror span.cm-string-2 { color: #A3FFCF; }
+html[data-theme="dark"] .CodeMirror span.cm-tag { color: #FFA3C3; }
+html[data-theme="dark"] .CodeMirror span.cm-variable { color: var(--linen); }
+html[data-theme="dark"] .CodeMirror span.cm-variable-2 { color: #C5A3FF; font-weight: bold; }
